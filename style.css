@@ -1,6 +1,4 @@
-/* ============================================
-   GLOBAL
-============================================ */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -11,52 +9,29 @@ body {
   background: #0e0e0f;
   color: #fff;
   font-family: "Inter", sans-serif;
+  display: flex;
   height: 100vh;
   overflow: hidden;
-  display: flex;
 }
 
-/* ============================================
-   HAMBURGER 
-============================================ */
-#hamburger {
-  position: fixed;
-  top: 12px;       /* moved up */
-  left: 12px;      /* moved left */
-  font-size: 28px;
-  cursor: pointer;
-  z-index: 9999;
-  opacity: 0.75;
-  user-select: none;
-}
-
-#hamburger:hover {
-  opacity: 1;
-}
-
-/* ============================================
-   SIDEBAR
-============================================ */
+/* SIDEBAR */
 #levelMenu {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 240px;              /* wider */
+  left: -270px;
+  width: 270px;
   height: 100vh;
-  background: #0c0c0c;
-  padding: 50px 22px 30px;   /* top padding so text never hits hamburger */
+  background: #111;
+  border-right: 1px solid #222;
+  padding: 25px 18px;
   overflow-y: auto;
-  transform: translateX(-100%);
-  opacity: 0;
-  transition:
-    transform 0.25s ease,
-    opacity 0.25s ease;
-  z-index: 9998;
+  overflow-x: hidden;
+  transition: left 0.3s ease;
+  z-index: 3000;
 }
 
 #levelMenu.open {
-  transform: translateX(0);
-  opacity: 1;
+  left: 0;
 }
 
 #levelMenu::-webkit-scrollbar {
@@ -64,146 +39,188 @@ body {
 }
 
 .level-item {
+  padding: 12px 10px;
   margin-bottom: 12px;
-  font-size: 14px;
-  line-height: 1.3;
+  border-radius: 6px;
+}
+
+.level-title {
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .completed-level {
-  color: #555;
+  background: #1d1d1d;
+  color: #777;
 }
 
 .current-level {
-  color: #fff;
-  font-weight: 700;
+  background: #2d2d2d;
+  border-left: 3px solid white;
 }
 
 .future-level {
-  color: #999;
-  opacity: 0.6;
+  background: #141414;
+  opacity: 0.55;
 }
 
-/* ============================================
-   MAIN AREA — CENTERED AGAIN
-============================================ */
+/* HAMBURGER */
+#hamburger {
+  position: fixed;
+  top: 22px;
+  left: 22px;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 4000;
+  background: #0e0e0f;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+/* Shift hamburger when menu opens */
+#levelMenu.open + #hamburger {
+  left: 290px;
+}
+
+/* MAIN AREA */
 .main-area {
   flex: 1;
-  padding-top: 95px;     /* ensures no overlap with hamburger */
-  padding-left: 100px;
-  padding-right: 100px;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 90px;
 }
 
-/* ============================================
-   TITLE
-============================================ */
 .title {
   font-size: 34px;
   font-weight: 900;
-  margin-bottom: 12px;
-  letter-spacing: 1px;
-  text-align: center;
+  margin-bottom: 10px;
 }
 
-/* ============================================
-   LEVEL LABEL
-============================================ */
 .level-label {
+  opacity: 0.85;
   margin-bottom: 25px;
-  font-size: 14px;
-  opacity: 0.8;
-  text-align: center;
 }
 
-/* ============================================
-   EXAMPLE CODE BOX — RESTORED STYLE
-============================================ */
-.code-block {
-  background: #1b1b1c !important;
-  padding: 20px;
-  width: 700px;
-  height: 180px;             /* fixed height */
-  border-radius: 8px;
-  border: 1px solid #2a2a2a;
-  overflow-y: auto;
-  overflow-x: auto;
-  margin-bottom: 20px;
-}
-
-/* Softer EXAMPLE colors */
-.token.keyword  { color: #6ca8ff; }
-.token.string   { color: #9dff9a; }
-.token.function { color: #ffd67c; }
-.token.number   { color: #ff8f8f; }
-
-/* ============================================
-   INPUT BOX
-============================================ */
-#userInput {
-  width: 700px;
-  height: 150px;
-  background: #0f0f10;
-  color: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #2a2a2a;
-  font-family: "Consolas", monospace;
-  font-size: 15px;
-  resize: none;
-  outline: none;
-  margin-bottom: 20px;
-}
-
-/* ============================================
-   BUTTON
-============================================ */
-#checkBtn {
-  padding: 12px 28px;
-  background: white;
-  color: black;
-  border: none;
-  border-radius: 6px;
-  font-weight: 700;
-  cursor: pointer;
-  margin-bottom: 15px;
-}
-
-#checkBtn:hover {
-  opacity: 0.9;
-}
-
-/* ============================================
-   RESULT
-============================================ */
-#result {
-  width: 700px;
-  font-size: 14px;
-}
-
-.error-highlight {
-  background: rgba(255, 230, 0, 0.35);
-  padding: 0 2px;
-  border-radius: 2px;
-}
-
-/* ============================================
-   PROGRESS BAR — FIXED
-============================================ */
+/* PROGRESS BAR */
 .progress-container {
   width: 700px;
-  height: 6px;
-  border-radius: 50px;
-  background: #333;
-  margin-bottom: 20px;
+  height: 10px;
+  background: #222;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
   width: 0%;
   background: white;
-  border-radius: 50px;
-  transition: width 0.4s ease;
+  transition: width 0.25s ease;
+}
+
+/* CODE BLOCK */
+.code-block {
+  background: #151515;
+  padding: 14px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  width: 700px;
+  white-space: pre-wrap;
+  overflow: auto;
+}
+
+#codePrompt,
+.code-block code {
+  white-space: pre-wrap !important;
+  line-height: 1.55;
+  font-size: 15px;
+}
+
+/* USER INPUT */
+#userInput {
+  width: 700px;
+  height: 140px;
+  background: #0f0f10;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #2a2a2a;
+  font-family: Consolas, monospace;
+  font-size: 15px;
+  resize: none; /* disabled dragging */
+}
+
+/* CHECK BUTTON */
+#checkBtn {
+  margin-top: 18px;
+  padding: 12px 28px;
+  background: white;
+  color: black;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+/* AUTO-NEXT SWITCH */
+.toggle-row {
+  width: 700px;
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-text {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+#autoNextToggle {
+  display: none;
+}
+
+.switch {
+  width: 50px;
+  height: 26px;
+  background: #2f2f2f;
+  border-radius: 30px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.switch::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #777;
+  transition: 0.3s;
+}
+
+#autoNextToggle:checked + .switch {
+  background: white;
+}
+
+#autoNextToggle:checked + .switch::before {
+  transform: translateX(24px);
+  background: black;
+}
+
+/* RESULT */
+#result {
+  margin-top: 18px;
+  width: 700px;
+}
+
+/* ERROR HIGHLIGHT */
+.error-highlight {
+  background: rgba(255, 230, 0, 0.35);
 }

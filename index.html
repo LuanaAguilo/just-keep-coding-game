@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Just Keep Coding</title>
 
-    <!-- Prism.js styles -->
+    <!-- Prism.js for syntax highlighting -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
@@ -15,46 +15,50 @@
   </head>
 
   <body>
-    <!-- ============================================
-         HAMBURGER BUTTON
-    ============================================ -->
+    <!-- SIDEBAR -->
+    <div id="levelMenu"></div>
+
+    <!-- HAMBURGER ICON (must be after sidebar for correct sliding behavior) -->
     <div id="hamburger">☰</div>
 
-    <!-- ============================================
-         SIDEBAR LEVEL MENU
-    ============================================ -->
-    <div id="sidebar" class="sidebar-hidden">
-      <div id="levelMenu"></div>
-    </div>
-
-    <!-- ============================================
-         MAIN CONTENT AREA
-    ============================================ -->
+    <!-- MAIN CONTENT AREA -->
     <div class="main-area">
+      <!-- TITLE -->
       <div class="title">JUST KEEP CODING</div>
 
+      <!-- LEVEL LABEL -->
       <div class="level-label"></div>
 
+      <!-- PROGRESS BAR -->
       <div class="progress-container">
         <div class="progress-fill"></div>
       </div>
 
-      <!-- EXAMPLE CODE PROMPT -->
-      <pre
-        class="code-block"
-      ><code id="codePrompt" class="language-js"></code></pre>
+      <!-- EXAMPLE CODE BLOCK -->
+      <pre class="code-block">
+<code id="codePrompt" class="language-js"></code>
+      </pre>
 
-      <!-- USER INPUT -->
+      <!-- TEXT INPUT AREA -->
       <textarea id="userInput" placeholder="Type the code here..."></textarea>
 
       <!-- CHECK BUTTON -->
       <button id="checkBtn">Check</button>
 
-      <!-- RESULT OUTPUT -->
+      <!-- AUTO-NEXT TOGGLE -->
+      <div class="toggle-row">
+        <label class="toggle-wrapper">
+          <span class="toggle-text">Auto-Next</span>
+          <input type="checkbox" id="autoNextToggle" />
+          <span class="switch"></span>
+        </label>
+      </div>
+
+      <!-- RESULT AREA -->
       <div id="result"></div>
     </div>
 
-    <!-- IMPORTANT: MODULE TYPE -->
+    <!-- JS FILE -->
     <script type="module" src="script.js"></script>
   </body>
 </html>
