@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Just Keep Coding</title>
+
+    <!-- Prism.js styles -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- ============================================
+         HAMBURGER BUTTON
+    ============================================ -->
+    <div id="hamburger">☰</div>
+
+    <!-- ============================================
+         SIDEBAR LEVEL MENU
+    ============================================ -->
+    <div id="sidebar" class="sidebar-hidden">
+      <div id="levelMenu"></div>
+    </div>
+
+    <!-- ============================================
+         MAIN CONTENT AREA
+    ============================================ -->
+    <div class="main-area">
+      <div class="title">JUST KEEP CODING</div>
+
+      <div class="level-label"></div>
+
+      <div class="progress-container">
+        <div class="progress-fill"></div>
+      </div>
+
+      <!-- EXAMPLE CODE PROMPT -->
+      <pre
+        class="code-block"
+      ><code id="codePrompt" class="language-js"></code></pre>
+
+      <!-- USER INPUT -->
+      <textarea id="userInput" placeholder="Type the code here..."></textarea>
+
+      <!-- CHECK BUTTON -->
+      <button id="checkBtn">Check</button>
+
+      <!-- RESULT OUTPUT -->
+      <div id="result"></div>
+    </div>
+
+    <!-- IMPORTANT: MODULE TYPE -->
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
