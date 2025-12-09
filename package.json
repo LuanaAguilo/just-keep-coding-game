@@ -1,0 +1,21 @@
+{
+"type":"module",
+  "name": "just-keep-coding-game",
+  "version": "1.0.0",
+  "description": "**Just Keep Coding** is a precision-based **Coding Practice Platform** built to develop the most fundamental skill in programming:",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuanaAguilo/just-keep-coding-game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuanaAguilo/just-keep-coding-game/issues"
+  },
+  "homepage": "https://github.com/LuanaAguilo/just-keep-coding-game#readme"
+}
